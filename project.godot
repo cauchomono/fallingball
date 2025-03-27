@@ -14,6 +14,17 @@ config/name="FallingBall"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=854
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[global_group]
+
+obstacles=""
+
 [rendering]
 
 renderer/rendering_method="mobile"

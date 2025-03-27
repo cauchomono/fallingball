@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://g2yff0k0vr2i"]
+
+[ext_resource type="PackedScene" uid="uid://cl33bl2vm01f6" path="res://ball_player.tscn" id="1_ln74n"]
+[ext_resource type="PackedScene" uid="uid://dsk3nul0lybmr" path="res://brick.tscn" id="2_qmnnm"]
+[ext_resource type="PackedScene" uid="uid://hkby25l8h2yw" path="res://spawner.tscn" id="3_7n23v"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BallPlayer" parent="." instance=ExtResource("1_ln74n")]
+position = Vector2(0, -2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -9
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -51.0
+offset_top = -72.0
+offset_right = 538.0
+offset_bottom = 941.0
+
+[node name="Brick2" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(465, 78)
+
+[node name="Brick3" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(465, 234)
+
+[node name="Brick4" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(465, 392)
+
+[node name="Brick5" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(465, 551)
+
+[node name="Brick6" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(465, 709)
+
+[node name="Brick7" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(465, 866)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 426)
+
+[node name="Spawner" parent="." instance=ExtResource("3_7n23v")]
+position = Vector2(229, 856)
+
+[node name="Brick8" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(17, 80)
+
+[node name="Brick9" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(16, 239)
+
+[node name="Brick10" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(16, 395)
+
+[node name="Brick11" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(16, 554)
+
+[node name="Brick12" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(16, 712)
+
+[node name="Brick13" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(16, 869)
