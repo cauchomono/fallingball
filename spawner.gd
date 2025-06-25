@@ -6,12 +6,13 @@ extends Node2D
 @export var wall_distance: Vector2 = Vector2(0, 10)
 var obstacle_size : Vector2
 var obstacle_index : int
+signal obstacle_hit
+
 func _ready():
 	spawn_random_obstacle()
 	$Timer.wait_time = spawn_rate
 	$Timer.start()
 	obstacle_size = get_random_obstacle_size()
-
 
 func spawn_random_obstacle():
 	obstacle_index  = randi_range(0,random_obstacle_scene.size()-1)
@@ -21,7 +22,7 @@ func spawn_random_obstacle():
 	var x_spawn_range : Vector2 = Vector2(wall_distance.x + obstacle_size.x,wall_distance.y - obstacle_size.x)
 	var spawn_x = randf_range(x_spawn_range.x , x_spawn_range.y)
 	obstacle.global_position = Vector2(spawn_x, position.y)
-	
+	obstacle.connect("player_touch",Callable(self,"on_obstacle_hit"))
 func _on_timer_timeout():
 	spawn_random_obstacle()
 	
@@ -38,3 +39,7 @@ func get_random_obstacle_size():
 		return Vector2(collider.shape.radius * 2, collider.shape.height)
 
 	return Vector2.ZERO
+	
+func on_obstacle_hit():
+		obstacle_hit.emit()
+	

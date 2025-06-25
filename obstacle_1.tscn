@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p60oa"]
 size = Vector2(64, 30)
 
-[node name="Obstacle1" type="StaticBody2D" groups=["obstacles"]]
-collision_layer = 2
+[node name="Obstacle1" type="Area2D" groups=["obstacles"]]
+collision_layer = 66
 script = ExtResource("1_dnddi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -15,3 +15,5 @@ shape = SubResource("RectangleShape2D_p60oa")
 
 [node name="ElementRedRectangle" type="Sprite2D" parent="."]
 texture = ExtResource("2_jcbfx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

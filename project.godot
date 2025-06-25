@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="FallingBall"
+run/main_scene="uid://btjh62cswn1em"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://Globals.gd"
 
 [display]
 
@@ -24,6 +29,8 @@ window/handheld/orientation=1
 [global_group]
 
 obstacles=""
+wall=""
+player=""
 
 [rendering]
 
