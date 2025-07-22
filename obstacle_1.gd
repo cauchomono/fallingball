@@ -9,8 +9,9 @@ func _ready():
 	pass
 	
 func _process(delta):
-	if speed > limit_speed:
-		speed = -((Globals.points + 1)*100 + 100)
+	if speed > limit_speed && (Globals.points % 10 == 0 && Globals.points != 0):
+		print("Hay aumento de velocidad: ", Globals.points % 10)
+		speed = -((Globals.points + 0.01)*10 + 100)
 	position.y += speed * delta
 
 	# Si el obstáculo sale de la pantalla, se elimina

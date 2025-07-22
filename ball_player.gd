@@ -21,10 +21,11 @@ func _process(delta):
 
 	#velocity.y += gravity * delta
 	#velocity.x = speed_x * direction * delta * 10 
-	apply_central_impulse(Vector2(-10 * direction,0))
+	#apply_central_impulse(Vector2(-10 * direction,0))
 
 	if Input.is_action_just_pressed("ui_accept"):
 		linear_velocity.x = 0
+		direction *= -1
 		apply_central_impulse(Vector2(300 * direction,0))
 
 
