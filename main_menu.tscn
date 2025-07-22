@@ -45,4 +45,6 @@ layout_mode = 2
 text = "Options
 "
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
