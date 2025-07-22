@@ -3,9 +3,12 @@ extends Node2D
 @onready var audioStreamPlayer : AudioStreamPlayer = $AudioStreamPlayer
 var score = 0
 var gameplaySound = preload("res://sounds/music/Ludum Dare 28 01.ogg")
+var scoreManager = preload("res://save_file.gd").new()
+var high_score : int
+
 
 func _ready():
-	
+	high_score = scoreManager.load_score()
 	audioStreamPlayer.stream = gameplaySound
 	audioStreamPlayer.play()
 	Globals.points = score
@@ -15,7 +18,12 @@ func _ready():
 func _on_enemy_passed() -> void:
 	score += 1
 	Globals.points = score
-	$CanvasLayer/Label.text = "Points: " + str(score)  # Actualizar la UI
+	$CanvasLayer/Label.text = "Points: " + str(score)
 
 func _on_player_touch() -> void:
-		get_tree().reload_current_scene()  # 🔄 Reinicia el juego
+		game_over()
+		get_tree().reload_current_scene()
+
+func game_over():
+	if score > high_score:
+		scoreManager.save_score(score)
