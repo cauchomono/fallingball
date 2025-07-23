@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://g2yff0k0vr2i"]
+[gd_scene load_steps=10 format=3 uid="uid://g2yff0k0vr2i"]
 
 [ext_resource type="PackedScene" uid="uid://cl33bl2vm01f6" path="res://ball_player.tscn" id="1_ln74n"]
 [ext_resource type="Script" uid="uid://ccin7htq3rfuq" path="res://infinite_game.gd" id="1_rn5lo"]
 [ext_resource type="PackedScene" uid="uid://dsk3nul0lybmr" path="res://brick.tscn" id="2_qmnnm"]
 [ext_resource type="PackedScene" uid="uid://hkby25l8h2yw" path="res://spawner.tscn" id="3_7n23v"]
+[ext_resource type="Texture2D" uid="uid://dql8d5cae162t" path="res://images/space.jpg" id="3_kakf4"]
 [ext_resource type="PackedScene" uid="uid://bpqobu2eoi7eo" path="res://obstacle_1.tscn" id="4_njkes"]
 [ext_resource type="PackedScene" uid="uid://cv25kt31alm3k" path="res://obstacle_2.tscn" id="5_8v6ie"]
 [ext_resource type="PackedScene" uid="uid://dg8kc7d2j0xvf" path="res://points_zone.tscn" id="6_ifnan"]
@@ -31,6 +32,10 @@ offset_left = 45.0
 offset_right = 331.0
 offset_bottom = 23.0
 text = "Points: 0"
+
+[node name="Space" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(251, 253)
+texture = ExtResource("3_kakf4")
 
 [node name="Brick2" parent="." instance=ExtResource("2_qmnnm")]
 position = Vector2(465, 78)
