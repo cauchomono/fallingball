@@ -22,11 +22,10 @@ layer = -8
 script = ExtResource("3_8bgac")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
-texture_repeat = 3
 motion_mirroring = Vector2(0, 654.68)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer"]
-texture_repeat = 2
+texture_repeat = 3
 position = Vector2(195, 259)
 texture = ExtResource("3_kakf4")
 
@@ -85,7 +84,6 @@ position = Vector2(-1, 789)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(240, 426)
-enabled = false
 
 [node name="Spawner" parent="." instance=ExtResource("3_7n23v")]
 unique_name_in_owner = true

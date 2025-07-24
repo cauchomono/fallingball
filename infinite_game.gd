@@ -21,8 +21,9 @@ func _on_enemy_passed() -> void:
 	$CanvasLayer/Label.text = "Points: " + str(score)
 
 func _on_player_touch() -> void:
-		game_over()
-		get_tree().reload_current_scene()
+	pass
+		#game_over()
+		#get_tree().reload_current_scene()
 
 func game_over():
 	if score > high_score:
