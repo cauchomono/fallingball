@@ -18,7 +18,7 @@ func _ready():
 func _on_enemy_passed() -> void:
 	score += 1
 	Globals.points = score
-	$CanvasLayer/Label.text = "Points: " + str(score)
+	$Background2/Label.text = "Points: " + str(score)
 
 func _on_player_touch() -> void:
 	pass
