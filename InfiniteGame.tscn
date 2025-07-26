@@ -1,15 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://g2yff0k0vr2i"]
+[gd_scene load_steps=13 format=3 uid="uid://g2yff0k0vr2i"]
 
 [ext_resource type="PackedScene" uid="uid://cl33bl2vm01f6" path="res://ball_player.tscn" id="1_ln74n"]
 [ext_resource type="Script" uid="uid://ccin7htq3rfuq" path="res://infinite_game.gd" id="1_rn5lo"]
 [ext_resource type="PackedScene" uid="uid://dsk3nul0lybmr" path="res://brick.tscn" id="2_qmnnm"]
 [ext_resource type="PackedScene" uid="uid://hkby25l8h2yw" path="res://spawner.tscn" id="3_7n23v"]
 [ext_resource type="Script" uid="uid://ob1kabjwe0bk" path="res://background.gd" id="3_8bgac"]
-[ext_resource type="Texture2D" uid="uid://dql8d5cae162t" path="res://images/space.jpg" id="3_kakf4"]
+[ext_resource type="Texture2D" uid="uid://fg547y5iri2a" path="res://images/space.png" id="4_8bgac"]
 [ext_resource type="PackedScene" uid="uid://bpqobu2eoi7eo" path="res://obstacle_1.tscn" id="4_njkes"]
 [ext_resource type="PackedScene" uid="uid://cv25kt31alm3k" path="res://obstacle_2.tscn" id="5_8v6ie"]
 [ext_resource type="PackedScene" uid="uid://dg8kc7d2j0xvf" path="res://points_zone.tscn" id="6_ifnan"]
 [ext_resource type="AudioStream" uid="uid://bs1cxscqftk5f" path="res://sounds/music/Ludum Dare 28 04.ogg" id="8_2d4u3"]
+[ext_resource type="Shader" uid="uid://cavet4k2jsfr0" path="res://space.gdshader" id="11_l5n8k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngmkv"]
+shader = ExtResource("11_l5n8k")
+shader_parameter/my_texture = ExtResource("4_8bgac")
+shader_parameter/scroll_speed = Vector2(0, 0.1)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_rn5lo")
@@ -17,18 +23,27 @@ script = ExtResource("1_rn5lo")
 [node name="BallPlayer" parent="." instance=ExtResource("1_ln74n")]
 position = Vector2(0, -2)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ngmkv")
+position = Vector2(241, 429)
+scale = Vector2(1.5626, 1.5626)
+texture = ExtResource("4_8bgac")
+
 [node name="Background" type="ParallaxBackground" parent="."]
 layer = -8
+visible = false
 script = ExtResource("3_8bgac")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
 texture_repeat = 3
-motion_mirroring = Vector2(0, 654.68)
+motion_mirroring = Vector2(0, 640.68)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer"]
 texture_repeat = 2
 position = Vector2(195, 259)
-texture = ExtResource("3_kakf4")
+texture = ExtResource("4_8bgac")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -9
