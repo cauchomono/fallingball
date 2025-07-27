@@ -4,6 +4,7 @@ extends Control
 var menuMusic = preload("res://sounds/music/Ludum Dare 28 04.ogg")
 
 func _ready():
+	get_tree().paused = false
 	audioStreamPlayer.stream = menuMusic
 	audioStreamPlayer.play()
 	

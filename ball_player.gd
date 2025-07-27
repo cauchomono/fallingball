@@ -4,6 +4,7 @@ extends RigidBody2D
 @export var speed_x: float = 500.0
 @export var jump_force: float = -600.0
 @export var change_direction_interval: float = 10.0
+signal died
 
 var direction: int = 1
 var time_elapsed: float = 0.0
@@ -30,10 +31,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print("Se ejecuta")
+	
 	if body.is_in_group("obstacles") or body.is_in_group("wall"):
-		game_over()
-
-func game_over():
-	print("¡Perdiste!")  # Aquí podrías reiniciar el juego o mostrar un menú
-	get_tree().reload_current_scene()
+		emit_signal("died")
