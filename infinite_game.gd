@@ -12,7 +12,6 @@ func _ready():
 	audioStreamPlayer.stream = gameplaySound
 	audioStreamPlayer.play()
 	$Background2/HighScore.text = "High Score: " + str(high_score)
-	Globals.points = score
 	$PointsZone.enemy_passed.connect(_on_enemy_passed) 
 	$Spawner.obstacle_hit.connect(_on_player_touch)
 	$BallPlayer.died.connect(game_over)
