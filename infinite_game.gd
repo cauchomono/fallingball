@@ -11,6 +11,7 @@ func _ready():
 	high_score = scoreManager.load_score()
 	audioStreamPlayer.stream = gameplaySound
 	audioStreamPlayer.play()
+	$Background2/HighScore.text = "High Score: " + str(high_score)
 	Globals.points = score
 	$PointsZone.enemy_passed.connect(_on_enemy_passed) 
 	$Spawner.obstacle_hit.connect(_on_player_touch)
@@ -18,7 +19,7 @@ func _ready():
 func _on_enemy_passed() -> void:
 	score += 1
 	Globals.points = score
-	$Background2/Label.text = "Points: " + str(score)
+	$Background2/Score.text = "Score: " + str(score)
 
 func _on_player_touch() -> void:
 	pass
