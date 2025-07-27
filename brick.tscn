@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsk3nul0lybmr"]
+
+[ext_resource type="Texture2D" uid="uid://b48vd46rmismx" path="res://firstTestResourses/element_purple_square.png" id="1_awxk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p85m"]
+size = Vector2(32, 158)
+
+[node name="Brick" type="StaticBody2D" groups=["wall"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["obstacles"]]
+shape = SubResource("RectangleShape2D_5p85m")
+
+[node name="ElementPurpleSquare" type="Sprite2D" parent="."]
+texture = ExtResource("1_awxk8")
+
+[node name="ElementPurpleSquare2" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+texture = ExtResource("1_awxk8")
+
+[node name="ElementPurpleSquare3" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_awxk8")
+
+[node name="ElementPurpleSquare4" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_awxk8")
+
+[node name="ElementPurpleSquare5" type="Sprite2D" parent="."]
+position = Vector2(0, 63)
+texture = ExtResource("1_awxk8")

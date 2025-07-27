@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpqobu2eoi7eo"]
+
+[ext_resource type="Script" uid="uid://cw07tlyu2fmso" path="res://obstacle_1.gd" id="1_dnddi"]
+[ext_resource type="Texture2D" uid="uid://bja1203b1bpqk" path="res://firstTestResourses/element_red_rectangle.png" id="2_jcbfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p60oa"]
+size = Vector2(64, 30)
+
+[node name="Obstacle1" type="Area2D" groups=["obstacles"]]
+collision_layer = 66
+script = ExtResource("1_dnddi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p60oa")
+
+[node name="ElementRedRectangle" type="Sprite2D" parent="."]
+texture = ExtResource("2_jcbfx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

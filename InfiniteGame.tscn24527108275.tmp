@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://g2yff0k0vr2i"]
+
+[ext_resource type="PackedScene" uid="uid://cl33bl2vm01f6" path="res://ball_player.tscn" id="1_ln74n"]
+[ext_resource type="Script" uid="uid://ccin7htq3rfuq" path="res://infinite_game.gd" id="1_rn5lo"]
+[ext_resource type="PackedScene" uid="uid://dsk3nul0lybmr" path="res://brick.tscn" id="2_qmnnm"]
+[ext_resource type="PackedScene" uid="uid://hkby25l8h2yw" path="res://spawner.tscn" id="3_7n23v"]
+[ext_resource type="Script" uid="uid://ob1kabjwe0bk" path="res://background.gd" id="3_8bgac"]
+[ext_resource type="Texture2D" uid="uid://dql8d5cae162t" path="res://images/space.jpg" id="3_kakf4"]
+[ext_resource type="PackedScene" uid="uid://bpqobu2eoi7eo" path="res://obstacle_1.tscn" id="4_njkes"]
+[ext_resource type="PackedScene" uid="uid://cv25kt31alm3k" path="res://obstacle_2.tscn" id="5_8v6ie"]
+[ext_resource type="PackedScene" uid="uid://dg8kc7d2j0xvf" path="res://points_zone.tscn" id="6_ifnan"]
+[ext_resource type="AudioStream" uid="uid://bs1cxscqftk5f" path="res://sounds/music/Ludum Dare 28 04.ogg" id="8_2d4u3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rn5lo")
+
+[node name="BallPlayer" parent="." instance=ExtResource("1_ln74n")]
+position = Vector2(0, -2)
+
+[node name="Background" type="ParallaxBackground" parent="."]
+layer = -8
+script = ExtResource("3_8bgac")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2(0, 654.68)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer"]
+texture_repeat = 3
+position = Vector2(195, 259)
+texture = ExtResource("3_kakf4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -9
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -51.0
+offset_top = -72.0
+offset_right = 538.0
+offset_bottom = 941.0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(0.205602, 0.0166492, 0.0425474, 1)
+self_modulate = Color(0.267227, 0.000229872, 0.817469, 1)
+offset_left = 45.0
+offset_right = 331.0
+offset_bottom = 23.0
+text = "Points: 0"
+
+[node name="Brick2" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(465, 78)
+
+[node name="Brick3" parent="Brick2" instance=ExtResource("2_qmnnm")]
+position = Vector2(0, 156)
+
+[node name="Brick4" parent="Brick2" instance=ExtResource("2_qmnnm")]
+position = Vector2(0, 314)
+
+[node name="Brick5" parent="Brick2" instance=ExtResource("2_qmnnm")]
+position = Vector2(0, 473)
+
+[node name="Brick6" parent="Brick2" instance=ExtResource("2_qmnnm")]
+position = Vector2(0, 631)
+
+[node name="Brick7" parent="Brick2" instance=ExtResource("2_qmnnm")]
+position = Vector2(0, 788)
+
+[node name="Brick8" parent="." instance=ExtResource("2_qmnnm")]
+position = Vector2(17, 80)
+
+[node name="Brick9" parent="Brick8" instance=ExtResource("2_qmnnm")]
+position = Vector2(-1, 159)
+
+[node name="Brick10" parent="Brick8" instance=ExtResource("2_qmnnm")]
+position = Vector2(-1, 315)
+
+[node name="Brick11" parent="Brick8" instance=ExtResource("2_qmnnm")]
+position = Vector2(-1, 474)
+
+[node name="Brick12" parent="Brick8" instance=ExtResource("2_qmnnm")]
+position = Vector2(-1, 632)
+
+[node name="Brick13" parent="Brick8" instance=ExtResource("2_qmnnm")]
+position = Vector2(-1, 789)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 426)
+
+[node name="Spawner" parent="." instance=ExtResource("3_7n23v")]
+unique_name_in_owner = true
+position = Vector2(229, 856)
+random_obstacle_scene = Array[PackedScene]([ExtResource("4_njkes"), ExtResource("5_8v6ie")])
+
+[node name="PointsZone" parent="." instance=ExtResource("6_ifnan")]
+unique_name_in_owner = true
+position = Vector2(-1, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2d4u3")
