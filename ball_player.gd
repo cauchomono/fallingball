@@ -29,7 +29,6 @@ func _process(delta):
 		direction *= -1
 		apply_central_impulse(Vector2(300 * direction,0))
 
-
 func _on_body_entered(body):
 	
 	if body.is_in_group("obstacles") or body.is_in_group("wall"):
