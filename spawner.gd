@@ -43,3 +43,5 @@ func get_random_obstacle_size():
 func on_obstacle_hit():
 		obstacle_hit.emit()
 	
+func generate_coin():
+	pass
