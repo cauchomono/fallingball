@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://g2yff0k0vr2i"]
+[gd_scene load_steps=15 format=3 uid="uid://g2yff0k0vr2i"]
 
 [ext_resource type="PackedScene" uid="uid://cl33bl2vm01f6" path="res://ball_player.tscn" id="1_ln74n"]
 [ext_resource type="Script" uid="uid://ccin7htq3rfuq" path="res://infinite_game.gd" id="1_rn5lo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cv25kt31alm3k" path="res://obstacle_2.tscn" id="5_8v6ie"]
 [ext_resource type="PackedScene" uid="uid://dg8kc7d2j0xvf" path="res://points_zone.tscn" id="6_ifnan"]
 [ext_resource type="AudioStream" uid="uid://bs1cxscqftk5f" path="res://sounds/music/Ludum Dare 28 04.ogg" id="8_2d4u3"]
+[ext_resource type="PackedScene" uid="uid://cjrd76j1qp2d3" path="res://coin.tscn" id="10_oqik8"]
 [ext_resource type="Shader" uid="uid://cavet4k2jsfr0" path="res://space.gdshader" id="11_l5n8k"]
 [ext_resource type="Script" uid="uid://ci20vobqd4mfu" path="res://game_over_screen.gd" id="12_ngmkv"]
 
@@ -27,7 +28,6 @@ position = Vector2(0, -2)
 
 [node name="Background" type="ParallaxBackground" parent="."]
 layer = -8
-visible = false
 script = ExtResource("3_8bgac")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -41,6 +41,7 @@ texture = ExtResource("4_8bgac")
 
 [node name="Background2" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = -10
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ngmkv")
@@ -112,6 +113,7 @@ enabled = false
 unique_name_in_owner = true
 position = Vector2(229, 856)
 random_obstacle_scene = Array[PackedScene]([ExtResource("4_njkes"), ExtResource("5_8v6ie")])
+coin_scene = ExtResource("10_oqik8")
 
 [node name="PointsZone" parent="." instance=ExtResource("6_ifnan")]
 unique_name_in_owner = true
