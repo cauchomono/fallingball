@@ -31,6 +31,7 @@ func spawn_random_obstacle():
 	var spawn_x = randf_range(x_spawn_range.x , x_spawn_range.y)
 	obstacle.global_position = Vector2(spawn_x, position.y)
 	obstacle.connect("player_touch",Callable(self,"on_obstacle_hit"))
+
 func _on_timer_timeout():
 	spawn_random_obstacle()
 	
@@ -57,7 +58,7 @@ func spawn_coin():
 	var x_spawn_range : Vector2 = Vector2(wall_distance.x + obstacle_size.x,wall_distance.y - obstacle_size.x)
 	var spawn_x = randf_range(x_spawn_range.x , x_spawn_range.y)
 	coin.global_position = Vector2(spawn_x, position.y)
-
+	print("This is the coin position: ", coin.global_position)
 
 func _on_coin_timer_timeout() -> void:
 	print("Is working the time out?")
