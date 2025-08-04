@@ -50,9 +50,7 @@ func get_random_obstacle_size():
 	
 func on_obstacle_hit():
 		obstacle_hit.emit()
-	
-<<<<<<< Updated upstream
-=======
+
 func spawn_coin():
 	var coin = coin_scene.instantiate()
 	add_child(coin)
@@ -64,4 +62,3 @@ func spawn_coin():
 func _on_coin_timer_timeout() -> void:
 	print("Is working the time out?")
 	spawn_coin()
->>>>>>> Stashed changes
