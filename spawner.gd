@@ -10,6 +10,7 @@ extends Node2D
 var obstacle_size : Vector2
 var obstacle_index : int
 signal obstacle_hit
+signal coin_collect
 
 func _ready():
 	#spawn_random_obstacle()
@@ -52,6 +53,9 @@ func get_random_obstacle_size():
 func on_obstacle_hit():
 		obstacle_hit.emit()
 
+func on_coin_collect():
+		coin_collect.emit()
+
 func spawn_coin():
 	var coin = coin_scene.instantiate()
 	add_child(coin)
@@ -59,6 +63,7 @@ func spawn_coin():
 	var spawn_x = randf_range(x_spawn_range.x , x_spawn_range.y)
 	coin.global_position = Vector2(spawn_x, position.y)
 	print("This is the coin position: ", coin.global_position)
+	coin.connect("player_touch",Callable(self,"on_coin_collect"))
 
 func _on_coin_timer_timeout() -> void:
 	print("Is working the time out?")

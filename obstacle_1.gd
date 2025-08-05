@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = -1000
+@export var speed: float = -500
 @export var limit_speed: float = -2500
 var points : int = 0
 signal player_touch
