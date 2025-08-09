@@ -197,9 +197,10 @@ process_mode = 2
 layout_mode = 2
 text = "Restart"
 
-[node name="Score_manager" parent="." node_paths=PackedStringArray("points_zone", "spawner") instance=ExtResource("14_4m4r1")]
+[node name="Score_manager" parent="." node_paths=PackedStringArray("points_zone", "spawner", "score_interface") instance=ExtResource("14_4m4r1")]
 points_zone = NodePath("../PointsZone")
 spawner = NodePath("../Spawner")
+score_interface = NodePath("../Background2")
 
 [connection signal="pressed" from="GameOverScreen/Control/VBoxContainer/MainMenuPage" to="GameOverScreen" method="_on_main_menu_page_pressed"]
 [connection signal="pressed" from="GameOverScreen/Control/VBoxContainer/RestartPage" to="GameOverScreen" method="_on_restart_page_pressed"]

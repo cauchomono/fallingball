@@ -9,8 +9,8 @@ func _ready() -> void:
 	print("I get instanciated")
 
 func _process(delta):
-	if speed > limit_speed && (Globals.points % 10 == 0 && Globals.points != 0):
-		speed = -((Globals.points + 0.01)*10 + 100)
+	if speed > limit_speed && (Globals.score % 10 == 0 && Globals.score != 0):
+		speed = -((Globals.score + 0.01)*10 + 100)
 	position.y += speed * delta
 
 	if -position.y > get_viewport_rect().size.y:
