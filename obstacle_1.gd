@@ -6,12 +6,11 @@ var points : int = 0
 signal player_touch
 
 func _ready():
-	
-	print("Velocity ", speed)
+	print("Obstacle Velocity ", speed)
 	pass
 	
 func _process(delta):
-	speed = -(Globals.level*100 + 100)
+	speed = -(Globals.level*80 + 100)
 	position.y += speed * delta
 
 	if -position.y > get_viewport_rect().size.y:

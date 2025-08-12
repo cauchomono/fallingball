@@ -7,9 +7,10 @@ signal player_touch
 
 func _ready() -> void:
 	print("I get instanciated")
+	print("Coin velocity", speed)
 
 func _process(delta):
-	speed = -(Globals.level*120 + 100)
+	speed = -(Globals.level*100 + 100)
 	position.y += speed * delta
 
 	if -position.y > get_viewport_rect().size.y:
