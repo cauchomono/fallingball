@@ -23,7 +23,8 @@ offset_right = 313.92
 offset_bottom = 33.07
 text = "How many points are you going to make?"
 
-[node name="HSlider" type="HSlider" parent="ColorRect"]
+[node name="Slider" type="HSlider" parent="ColorRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.196
@@ -52,4 +53,25 @@ offset_right = 221.08
 offset_bottom = 32.135
 text = "1000"
 
-[connection signal="value_changed" from="ColorRect/HSlider" to="." method="_on_h_slider_value_changed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.427
+anchor_right = 0.2
+anchor_bottom = 0.427
+offset_top = -0.085022
+offset_right = 295.0
+offset_bottom = 26.915
+
+[node name="Bet" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Bet!"
+
+[node name="Main_menu" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="value_changed" from="ColorRect/Slider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Bet" to="." method="_on_bet_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Main_menu" to="." method="_on_main_menu_pressed"]
