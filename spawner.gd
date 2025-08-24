@@ -11,9 +11,13 @@ var obstacle_size : Vector2
 var obstacle_index : int
 signal obstacle_hit
 signal coin_collect
+var is_active = false
 
-func _ready():
-	#spawn_random_obstacle()
+func _ready() -> void:
+	set_status_spawner(is_active)
+
+func set_spawner():
+		#spawn_random_obstacle()
 	$Timer.wait_time = spawn_rate
 	$Timer.start()
 	#obstacle_size = get_random_obstacle_size()
@@ -21,7 +25,6 @@ func _ready():
 	$CoinTimer.wait_time = spawn_rate_coin
 	$CoinTimer.start()
 	spawn_coin()
-	
 	
 func spawn_random_obstacle():
 	obstacle_index  = randi_range(0,random_obstacle_scene.size()-1)
@@ -68,3 +71,12 @@ func spawn_coin():
 func _on_coin_timer_timeout() -> void:
 	print("Is working the time out?")
 	spawn_coin()
+
+func set_status_spawner(is_active_scene:bool) -> void:
+	is_active = is_active_scene
+	if is_active : 
+		set_spawner()
+	
+	
+	
+	

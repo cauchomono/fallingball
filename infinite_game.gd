@@ -27,8 +27,9 @@ func increase_score_on_screen():
 
 
 func _on_bet_screen_is_active_screen(is_active:bool) -> void:
-	get_tree().paused = false
-	if(is_active):
-		get_tree().paused = true
+	%Spawner.set_status_spawner(false)
+	if !is_active:
+		%Spawner.set_status_spawner(true)
+		
 	
 	
