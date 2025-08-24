@@ -3,7 +3,7 @@ extends Node2D
 @onready var audioStreamPlayer : AudioStreamPlayer = $AudioStreamPlayer
 @onready var gameplaySound = preload("res://sounds/music/Ludum Dare 28 01.ogg")
 @onready var coin = preload("res://coin.gd").new()
-
+var is_bet_screen_active = true
 
 func _ready():
 	audioStreamPlayer.stream = gameplaySound
@@ -24,3 +24,11 @@ func increase_score_on_screen():
 	print("is working increase_score_on_screen?")
 	var score = Globals.score 
 	%Background2/Score.text = "Score: " + str(score)
+
+
+func _on_bet_screen_is_active_screen(is_active:bool) -> void:
+	get_tree().paused = false
+	if(is_active):
+		get_tree().paused = true
+	
+	
