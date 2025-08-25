@@ -24,3 +24,5 @@ func _on_main_menu_pressed() -> void:
 func _on_main_menu_visibility_changed() -> void:
 	print("Se emite el active status")
 	is_active_screen.emit(visible_screen_status)
+	
+	
