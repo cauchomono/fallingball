@@ -36,7 +36,6 @@ offset_top = 146.575
 offset_right = 275.92
 offset_bottom = 162.575
 min_value = 1.0
-max_value = 10000.0
 value = 1.0
 
 [node name="PointsBet" type="Label" parent="ColorRect"]
